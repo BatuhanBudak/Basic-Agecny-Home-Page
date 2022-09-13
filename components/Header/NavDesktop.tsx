@@ -4,34 +4,41 @@ export default function NavDesktop() {
       <ul className="nav__menu__list">
         <li className="nav__menu__list__item">
           <a href="" className="nav__menu__list__item__link">
-            MENU
+            WORK
           </a>
         </li>
 
         <li className="nav__menu__list__item  active-link">
           <a href="" className="nav__menu__list__item__link ">
-            REWARDS
+            ABOUT
           </a>
         </li>
         <li className="nav__menu__list__item">
           <a href="" className="nav__menu__list__item__link">
-            GIFT CARDS
+            NEWS
+          </a>
+        </li>
+        <li className="nav__menu__list__item">
+          <a href="" className="nav__menu__list__item__link">
+            THINKING
+          </a>
+        </li>
+        <li className="nav__menu__list__item">
+          <a href="" className="nav__menu__list__item__link">
+            PLEDGE
+          </a>
+        </li>
+        <li className="nav__menu__list__item">
+          <a href="" className="nav__menu__list__item__link">
+            CAREERS
+          </a>
+        </li>
+        <li className="nav__menu__list__item">
+          <a href="" className="nav__menu__list__item__link">
+            CONTACT
           </a>
         </li>
       </ul>
-      <div className="nav__menu__auth">
-        <a className="nav__menu__auth__link" href="">
-          Find a store
-        </a>
-        <div className="nav__menu__auth__button-container">
-          <a className="nav__menu__auth__link button" href="">
-            Sign in
-          </a>
-          <a className="nav__menu__auth__link button button--white" href="">
-            Join now
-          </a>
-        </div>
-      </div>
     </div>
   );
 }

@@ -74,51 +74,10 @@ export default function NavDrawer({ drawerOpen, toggleDrawer }) {
           </a>
         </li>
       </ul>
+      <div className="nav__drawer__copyright meta">
+        <span>BASIC/DEPT®, inc</span>
+        <span>10 - 22©</span>
+      </div>
     </div>
-    // <div
-    //   className={`
-
-    //    nav__drawer-second ${secondDrawerOpen ? "second-drawer-open" : ""}`}
-    //   role="menu"
-    //   aria-hidden={!secondDrawerOpen}
-    //   tabIndex={secondDrawerOpen ? 0 : -1}
-    // >
-    //   <button
-    //     className="nav__drawer-second__list__item__btn  has-arrow has-arrow--left"
-    //     aria-controls="mobile-nav-secondary"
-    //     aria-expanded={secondDrawerOpen}
-    //     aria-label="Close seconday navigation"
-    //     onClick={() => {
-    //       toggleSecondDrawer();
-    //     }}
-    //   >
-    //     Menu
-    //   </button>
-    //   <ul
-    //     className="nav__drawer__list nav__drawer__list--second"
-    //     id="mobile-nav-secondary"
-    //   >
-    //     <li className="nav__drawer__list__item">
-    //       <a className="nav__drawer__list__item__link" href="">
-    //         All products
-    //       </a>
-    //     </li>
-    //     <li className="nav__drawer__list__item">
-    //       <a className="nav__drawer__list__item__link" href="">
-    //         Featured
-    //       </a>
-    //     </li>
-    //     <li className="nav__drawer__list__item">
-    //       <a className="nav__drawer__list__item__link" href="">
-    //         Previous
-    //       </a>
-    //     </li>
-    //     <li className="nav__drawer__list__item">
-    //       <a className="nav__drawer__list__item__link" href="">
-    //         Favorites
-    //       </a>
-    //     </li>
-    //   </ul>
-    // </div>
   );
 }
