@@ -1,0 +1,31 @@
+.logo-takeover {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+.logo-takeover__mask {
+  flex: 0 0 35vw;
+  position: relative;
+  overflow: hidden;
+  animation: translate-up-100 0.5s var(--ease-garret) 0.5s forwards;
+}
+
+.logo-takeover__logo {
+  position: relative;
+  top: 0.1rem;
+  animation: translate-down-100 0.5s var(--ease-garret) 0.5s forwards;
+}
+
+.logo-takeover__covers {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

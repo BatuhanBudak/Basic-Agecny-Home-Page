@@ -347,6 +347,24 @@ button {
   }
 }
 
+@keyframes translate-up-100 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes translate-down-100 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
 @keyframes trace-out {
   0% {
     transform: translateX(0);
