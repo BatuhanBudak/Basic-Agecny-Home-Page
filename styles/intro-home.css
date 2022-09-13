@@ -1,0 +1,105 @@
+.intro-home {
+  opacity: 1;
+  padding: 0;
+  margin-top: calc(-1 * var(--header-height));
+  margin-bottom: 0;
+}
+.intro-home__wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-home .asset {
+  transform: translateY(100%);
+  animation: intro-asset 1s var(--ease-garret) 0.6s forwards;
+}
+
+@keyframes intro-asset {
+  0% {
+    transform: translateY(calc(100vh - var(--intro-asset-offset)));
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.intro-home .asset__wrapper {
+  transform: translateY(-100%);
+  animation: intro-asset-wrapper 1s var(--ease-garret) 0.6s forwards;
+}
+@keyframes intro-asset-wrapper {
+  0% {
+    transform: translateY(calc(-100vh + var(--intro-asset-offset)))
+      scale3d(1.25, 1.25, 1);
+  }
+  100% {
+    transform: translateY(0) scaleX(1);
+  }
+}
+
+.intro-home .asset svg {
+  height: 100vh;
+}
+
+.intro-home .asset video {
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0;
+  animation: fade-in 0.35s var(--ease-in-out-soft) forwards;
+}
+
+.intro-home__video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+}
+
+.intro-home__video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.intro-home .button-circle {
+  pointer-events: none;
+}
+.intro-home .button-circle button {
+  opacity: 0;
+  animation: fade-in 0.2s var(--ease-out-soft) 1s forwards;
+}
+.button-circle__text__container {
+  position: absolute;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  margin-top: 0.1rem;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  z-index: 1;
+  animation: fade-in 0.2s var(--ease-out-soft) 1s forwards;
+}
+
+.button-circle__text {
+  display: inline-block;
+  margin-top: 0;
+  color: var(--clr-tuatara);
+  transform: none;
+}
+
+.intro-home .button-circle__bg {
+  background-color: var(--clr-white);
+}
+
+.button-circle__footer {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: var(--fw-bold);
+  text-align: center;
+  color: var(--tuatara);
+  opacity: 0;
+  animation: fade-in 0.2s var(--ease-out-soft) 1s forwards;
+}

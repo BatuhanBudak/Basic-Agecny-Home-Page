@@ -11,20 +11,29 @@ export default function Header() {
 
   useEffect(() => {
     const header = headerRef.current;
+    let isMounting = true;
 
+    if (isMounting) {
+      document.body.classList.add("top");
+      isMounting = false;
+    }
     function handleScroll() {
       let currentScroll = window.scrollY;
 
       if (currentScroll <= header.getBoundingClientRect().height) {
-        document.body.classList.add("scroll-up");
+        if (!document.body.classList.contains("top")) {
+          document.body.classList.add("top");
+        }
       }
       //Scroll Down
       else if (currentScroll > lastScrollY) {
-        document.body.classList.add("scroll-down");
+        document.body.classList.remove("top");
         document.body.classList.remove("scroll-up");
+        document.body.classList.add("scroll-down");
       }
       //Scroll Up
       else if (currentScroll < lastScrollY) {
+        document.body.classList.remove("top");
         document.body.classList.remove("scroll-down");
         document.body.classList.add("scroll-up");
       }
@@ -50,7 +59,7 @@ export default function Header() {
       </a>
       <div className="nav__background"></div>
       <div className="noise"></div>
-      <div className="container nav__container">
+      <div className="nav__container">
         <nav className={`nav ${drawerOpen ? "drawer-open" : ""}`}>
           <NavMobile toggleDrawer={toggleDrawer} drawerOpen={drawerOpen} />
           <NavDesktop />

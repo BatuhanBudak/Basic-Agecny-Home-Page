@@ -1,0 +1,45 @@
+main {
+  position: relative;
+  padding-top: var(--header-height);
+}
+
+.content {
+  min-height: calc(100vh - var(--header-height) - 16rem);
+}
+@media only screen and (min-width: 1280px) {
+  .content {
+    min-height: calc(100vh - var(--header-height) - 15.625vw);
+  }
+}
+
+.home {
+  counter-reset: meta-bar-alpha;
+}
+
+.asset {
+  width: 100%;
+  overflow: hidden;
+}
+
+.asset__wrapper {
+  position: relative;
+}
+.asset svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+.asset figure,
+.asset img,
+.asset video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.asset video {
+  opacity: 0;
+  animation: fade-in 0.35s var(--easse-in-out-soft) forwards;
+}
