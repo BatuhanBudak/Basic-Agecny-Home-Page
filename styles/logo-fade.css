@@ -21,11 +21,3 @@
   top: 0.1rem;
   animation: translate-down-100 0.5s var(--ease-garret) 0.5s forwards;
 }
-
-.logo-takeover__covers {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-}

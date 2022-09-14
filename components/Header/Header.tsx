@@ -7,15 +7,15 @@ import NavDesktop from "./NavDesktop";
 export default function Header() {
   const [drawerOpen, toggleDrawer] = useToggle();
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMounting, setIsMounting] = useState(true);
   const headerRef = useRef();
 
   useEffect(() => {
     const header = headerRef.current;
-    let isMounting = true;
 
     if (isMounting) {
       document.body.classList.add("top");
-      isMounting = false;
+      setIsMounting(false);
     }
     function handleScroll() {
       let currentScroll = window.scrollY;

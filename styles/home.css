@@ -39,7 +39,8 @@ main {
   left: 0;
   top: 0;
 }
+.asset img,
 .asset video {
   opacity: 0;
-  animation: fade-in 0.35s var(--easse-in-out-soft) forwards;
+  animation: fade-in 0.35s var(--ease-in-out-soft) forwards;
 }
