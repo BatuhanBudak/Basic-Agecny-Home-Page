@@ -7,6 +7,7 @@ import "../styles/case-studies.css";
 import "../styles/clients.css";
 import "../styles/spotlight.css";
 import "../styles/featured.css";
+import "../styles/footer.css";
 import "../styles/logo-fade.css";
 
 import type { AppProps } from "next/app";

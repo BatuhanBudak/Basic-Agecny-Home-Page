@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;700&display=swap");
 
 :root {
   /* Colors */
@@ -31,8 +31,7 @@
   --lh-small: 1.14;
   --lh-body: 1.4;
   --lh-large: 1.45;
-  --fw-medium: 400;
-  --fw-bold: 700;
+
   --ls-default: -0.01em;
   --fs-h1: 4rem;
   --fs-h2: 2.4rem;
@@ -46,12 +45,16 @@
   --lh-h4: 1.2;
   --lh-h5: 1.1;
   --lh-h6: 1.1;
+  --fw-regular: 300;
+  --fw-medium: 500;
+  --fw-bold: 700;
   --fw-h1: var(--fw-bold);
   --fw-h2: var(--fw-bold);
   --fw-h3: var(--fw-medium);
   --fw-h4: var(--fw-bold);
   --fw-h5: var(--fw-bold);
   --fw-h6: var(--fw-medium);
+
   --ls-h1: -0.05em;
   --ls-h2: -0.05em;
   --ls-h3: -0.035em;
@@ -249,6 +252,14 @@ h5 {
   letter-spacing: var(--ls-h5);
 }
 
+.h6,
+h6 {
+  font-size: var(--fs-h6);
+  line-height: var(--lh-h6);
+  font-weight: var(--fw-h6);
+  letter-spacing: var(--ls-h6);
+}
+
 section {
   padding-inline: var(--grid-padding);
   margin-block: var(--pages-section);
@@ -272,6 +283,11 @@ strong {
 button {
   background-color: transparent;
   border: none;
+}
+
+button:focus,
+input:focus {
+  outline: none;
 }
 
 .button-circle {

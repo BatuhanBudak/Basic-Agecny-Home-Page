@@ -50,11 +50,6 @@ export default function Clients() {
           const rate = Math.min((splide.index + 1) / end, 1);
           console.log(end, rate);
         }}
-        //   // bar.style.width = String( 100 * rate ) + '%';
-        // }}
-        // onDrag={(splide) => {
-        //   console.log(splide);
-        // }}
       >
         <SplideTrack className="carousel__stage">
           <SplideSlide className="carousel__stage__item">
