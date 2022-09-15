@@ -1,0 +1,43 @@
+.spotlight {
+  opacity: 1;
+}
+.spotlight .col {
+  flex: 0 0 100%;
+}
+
+.spotlight .col + .col {
+  margin-top: var(--size-900);
+}
+.spotlight__label,
+.spotlight q {
+  display: block;
+
+  text-transform: uppercase;
+}
+
+.spotlight q {
+  font-size: var(--fs-h1);
+  line-height: 0.9;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.05em;
+}
+
+.dot-wrapped,
+.dot-wrapped > span {
+  display: inline-block;
+}
+
+.dot-wrapped {
+  white-space: nowrap;
+}
+.dot-wrapped > span:first-child {
+  padding-right: 0.15em;
+}
+
+.spotlight__label {
+  margin-top: var(--size-650);
+  font-weight: var(--fw-regular);
+}
+.spotlight__label + p {
+  margin-top: var(--size-650);
+}

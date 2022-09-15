@@ -233,6 +233,22 @@ body {
   min-height: 100vh;
 }
 
+.h2,
+h2 {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  font-weight: var(--fw-h2);
+  letter-spacing: var(--ls-h2);
+}
+
+.h5,
+h5 {
+  font-size: var(--fs-h5);
+  line-height: var(--lh-h5);
+  font-weight: var(--fw-h5);
+  letter-spacing: var(--ls-h5);
+}
+
 section {
   padding-inline: var(--grid-padding);
   margin-block: var(--pages-section);
@@ -242,6 +258,17 @@ section {
   z-index: var(--z-section);
   opacity: 0;
 }
+
+blockquote,
+q {
+  quotes: none;
+}
+
+b,
+strong {
+  font-weight: var(--fw-bold);
+}
+
 button {
   background-color: transparent;
   border: none;

@@ -20,3 +20,11 @@ export const MobileNavMenuIcon = () => (
     <path d="M204,17.2h-1.4v1.6h1.4c0.5,0,0.7-0.3,0.7-0.8C204.7,17.5,204.4,17.2,204,17.2z M203.9,16.4c1.2,0,1.8,0.5,1.8,1.6 c0,0.6-0.3,1.1-0.9,1.3l1.2,1.8h-1.2l-1.1-1.6h-1.2v1.6h-1.1v-4.7H203.9z"></path>
   </svg>
 );
+
+export const RightChevron = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
+    <rect x="0.1" y="7.5" width="14" height="2"></rect>
+    <path d="M8.4,0l8.5,8.5l-1.4,1.4L7,1.4L8.4,0z"></path>
+    <path d="M7,15.6l8.5-8.5l1.4,1.4L8.4,17L7,15.6z"></path>
+  </svg>
+);

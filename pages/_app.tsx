@@ -4,6 +4,9 @@ import "../styles/home.css";
 import "../styles/intro-home.css";
 import "../styles/home-overview.css";
 import "../styles/case-studies.css";
+import "../styles/clients.css";
+import "../styles/spotlight.css";
+import "../styles/featured.css";
 import "../styles/logo-fade.css";
 
 import type { AppProps } from "next/app";
