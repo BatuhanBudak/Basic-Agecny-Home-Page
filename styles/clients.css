@@ -56,6 +56,15 @@
   text-transform: uppercase;
 }
 
+.carousel {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  backface-visibility: hidden;
+  z-index: 2;
+}
+
 .carousel__wrap {
   width: auto;
   left: 0;
@@ -63,10 +72,24 @@
   overflow: hidden;
 }
 .carousel__stage {
+  display: grid;
+  grid-auto-flow: column;
+  /* grid-auto-columns: 65%; */
   padding-bottom: var(--size-800);
+  padding-right: var(--grid-padding);
+  padding-left: var(--grid-padding);
+  position: relative;
+  overflow-x: auto;
+  scrollbar-width: none;
+  overscroll-behavior-inline: contain;
 }
 
-.splide__slide {
+.carousel ul {
+  pointer-events: all;
+  white-space: nowrap;
+}
+
+.carousel__stage__item {
   padding-top: 6.25rem;
   padding-right: calc(var(--grid-padding) * 2);
   position: relative;
@@ -118,14 +141,4 @@
   display: inline;
   cursor: pointer;
   text-decoration: underline;
-}
-.splide__progress {
-  background: #ccc;
-}
-
-.splide__progress__bar {
-  background: greenyellow;
-  height: 2px;
-  transition: width 400ms ease;
-  width: 0;
 }
