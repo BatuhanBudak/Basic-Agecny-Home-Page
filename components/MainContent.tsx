@@ -6,19 +6,20 @@ import HomeOverview from "./HomeOverview";
 import IntroHome from "./IntroHome";
 import Spotlight from "./Spotlight";
 
-export default function MainContent() {
-  return (
-    <main role="main" id="content">
-      <div className="content">
-        <div className="home">
-          <IntroHome />
-          <HomeOverview />
-          <CaseStudies />
-          <Clients />
-          <Spotlight />
-          <Featured />
-        </div>
+const MainContent = React.forwardRef((props, ref) => (
+  <main role="main" id="content">
+    <div className="content">
+      <div className="home">
+        <IntroHome />
+        <HomeOverview />
+        <CaseStudies />
+        <Clients />
+        <Spotlight />
+        <Featured />
       </div>
-    </main>
-  );
-}
+    </div>
+  </main>
+));
+
+MainContent.displayName = "MainContent";
+export default MainContent;

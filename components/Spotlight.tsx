@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 export default function Spotlight() {
+  const [ref, inViewRef] = useInView({
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    if (inViewRef) {
+      document.body.classList.add("intersect");
+    } else {
+      document.body.classList.remove("intersect");
+    }
+  }, [inViewRef]);
+
   return (
-    <section className="spotlight">
+    <section className="spotlight" ref={ref}>
       <div className="row">
         <div className="col">
           <div className="asset">
@@ -15,10 +28,9 @@ export default function Spotlight() {
                 preserveAspectRatio=""
               ></svg>
               <video
-                playsInline
-                muted
-                loop
-                autoPlay
+                playsInline={true}
+                autoPlay={true}
+                loop={true}
                 title="BASIC® Branding Agency — Culture Manual{} Employee Onboarding Video"
               >
                 <source src="Culture-Loop_v1.mp4" type="video/mp4" />

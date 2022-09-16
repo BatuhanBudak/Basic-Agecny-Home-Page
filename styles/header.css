@@ -5,10 +5,21 @@ header {
   left: 0;
   top: 0;
   z-index: var(--z-header);
-  color: var(--clr-white);
   overflow-y: visible;
   transition: color 0.65s var(--ease-in-out-soft),
-    opacity 0.65s var(--ease-in-out-soft);
+    opacity 0.65s var(--ease-in-out-soft),
+    transform 0.65s var(--ease-in-out-soft);
+}
+.scroll-down header {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+.scroll-up header {
+  transform: translateY(0);
+  opacity: 1;
+}
+.video-playing header {
+  opacity: 0;
 }
 
 .nav__container {
@@ -45,6 +56,7 @@ header {
 .nav__drawer {
   display: none;
 }
+
 .nav__background {
   width: 100%;
   height: 100%;
@@ -52,7 +64,7 @@ header {
   left: 0;
   top: 0;
   z-index: -1;
-  opacity: 0;
+  opacity: 1;
   background-color: var(--background-color);
   will-change: background-color, opacity;
   transition: background-color 0.65s var(--ease-in-out-soft),

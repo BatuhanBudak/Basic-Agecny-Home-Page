@@ -234,6 +234,14 @@ body {
   font-family: var(--ff-primary);
   letter-spacing: var(--ls-default);
   min-height: 100vh;
+  will-change: background-color, color;
+  transition: color 1s var(--ease-in-out-soft),
+    background-color 0.65s var(--ease-in-out-soft);
+}
+
+body.intersect {
+  --background-color: var(--clr-tuatara);
+  --text-color: var(--clr-azalea);
 }
 
 .h2,
@@ -283,6 +291,7 @@ strong {
 button {
   background-color: transparent;
   border: none;
+  color: inherit;
 }
 
 button:focus,

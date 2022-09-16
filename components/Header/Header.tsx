@@ -23,6 +23,8 @@ export default function Header() {
       if (currentScroll <= header.getBoundingClientRect().height) {
         if (!document.body.classList.contains("top")) {
           document.body.classList.add("top");
+          document.body.classList.remove("scroll-up");
+          document.body.classList.remove("scroll-down");
         }
       }
       //Scroll Down
