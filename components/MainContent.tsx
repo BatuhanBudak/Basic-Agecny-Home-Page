@@ -7,7 +7,7 @@ import IntroHome from "./IntroHome";
 import Spotlight from "./Spotlight";
 
 const MainContent = React.forwardRef((props, ref) => (
-  <main role="main" id="content">
+  <main role="main">
     <div className="content">
       <div className="home">
         <IntroHome />

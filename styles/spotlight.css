@@ -1,5 +1,14 @@
 .spotlight {
   opacity: 1;
+  overflow: visible;
+}
+
+@media only screen and (min-width: 720px) {
+  .spotlight .row {
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: space-between;
+  }
 }
 .spotlight .col {
   flex: 0 0 100%;
@@ -8,6 +17,7 @@
 .spotlight .col + .col {
   margin-top: var(--size-900);
 }
+
 .spotlight__label,
 .spotlight q {
   display: block;
@@ -40,4 +50,20 @@
 }
 .spotlight__label + p {
   margin-top: var(--size-650);
+}
+@media only screen and (min-width: 720px) {
+  .spotlight .col {
+    flex: 0 0
+      calc(
+        (var(--grid-width) + var(--grid-gutter) - var(--grid-padding) * 2) /
+          var(--grid-column-count) * 3 - var(--grid-gutter)
+      );
+  }
+  .spotlight .col + .col {
+    margin-top: 0;
+  }
+  .spotlight .col + .col div {
+    position: sticky;
+    top: 0;
+  }
 }

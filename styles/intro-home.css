@@ -9,6 +9,14 @@
   position: relative;
   overflow: hidden;
 }
+
+@media screen and (min-width: 80em) {
+  .intro-home__wrapper,
+  .intro-home__wrapper:hover {
+    cursor: none;
+  }
+}
+
 .is-playing .intro-home__poster {
   visibility: hidden;
 }
@@ -84,6 +92,7 @@
   opacity: 0;
   animation: fade-in 0.2s var(--ease-out-soft) 1s forwards;
 }
+
 .button-circle__text__container {
   position: absolute;
   opacity: 0;
@@ -100,6 +109,7 @@
   display: inline-block;
   margin-top: 0;
   color: var(--clr-tuatara);
+  font-size: 14px;
   transform: none;
 }
 
@@ -116,6 +126,57 @@
   color: var(--tuatara);
   opacity: 0;
   animation: fade-in 0.2s var(--ease-out-soft) 1s forwards;
+}
+.intro-home__wrapper .button-circle.cursor-takover {
+  display: none;
+}
+@media only screen and (min-width: 80em) {
+  .intro-home__wrapper .button-circle.cursor-takover {
+    display: none;
+    opacity: 0;
+    top: -5rem;
+    left: -5rem;
+    pointer-events: none;
+    transition: opacity 0.3s var(--ease-out-soft);
+  }
+  .intro-home__wrapper:hover .button-circle.cursor-takover {
+    display: block;
+    opacity: 1;
+    transition-delay: 0.2s;
+  }
+  .intro-home__wrapper .button-circle:not(.cursor-takeover) {
+    opacity: 1;
+    transition: opacity 0.2s var(--ease-out-soft) 0.4s;
+  }
+
+  .intro-home__wrapper:hover .button-circle:not(.cursor-takeover) {
+    opacity: 0;
+    transition: opacity 0.2s var(--ease-out-soft) 0s;
+  }
+
+  .button-circle.cursor-takeover .button-circle__text:first-child {
+    transform: translateY(0);
+  }
+
+  .intro-home__wrapper.is-cursor-takeover:hover
+    .button-circle.cursor-takeover
+    .button-circle__text:first-child {
+    transform: translateY(-100%);
+    transition: transform 0.3s var(--ease-out-soft) 0.3s;
+  }
+
+  .button-circle.cursor-takeover
+    .button-circle__text__container:nth-child(2)
+    .button-circle__text {
+    transform: translateY(100%);
+  }
+  .intro-home__wrapper.is-cursor-takeover:hover
+    .button-circle.cursor-takeover
+    .button-circle__text__container:nth-child(2)
+    .button-circle__text {
+    transform: none;
+    transition: transform 0.3s var(--ease-out-soft) 0.4s;
+  }
 }
 
 .intro-home__scrubber {

@@ -19,7 +19,7 @@ export default function Featured() {
             href="/blog/b-d-jams-by-us-for-us"
             className="list-item list-item-blog push-hover"
           >
-            <div className="asset" data-index="15">
+            <div className="asset">
               <div className="asset__wrapper">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -29,6 +29,7 @@ export default function Featured() {
                   preserveAspectRatio=""
                 ></svg>
                 <Image
+                  className="image"
                   src="/Jams-thumbnail-1.jpg"
                   alt=""
                   layout="fill"
@@ -52,7 +53,7 @@ export default function Featured() {
             href="/blog/b-d-jams-by-us-for-us"
             className="list-item list-item-blog push-hover"
           >
-            <div className="asset" data-index="15">
+            <div className="asset">
               <div className="asset__wrapper">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -62,6 +63,7 @@ export default function Featured() {
                   preserveAspectRatio=""
                 ></svg>
                 <Image
+                  className="image"
                   src="/BRX_thumb.jpg"
                   alt=""
                   layout="fill"
@@ -80,12 +82,13 @@ export default function Featured() {
             </div>
           </a>
         </li>
+
         <li>
           <a
             href="/blog/b-d-jams-by-us-for-us"
             className="list-item list-item-blog push-hover"
           >
-            <div className="asset" data-index="15">
+            <div className="asset">
               <div className="asset__wrapper">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -95,6 +98,7 @@ export default function Featured() {
                   preserveAspectRatio=""
                 ></svg>
                 <Image
+                  className="image"
                   src="/Ashley-Blog-Thumbnail.jpg"
                   alt=""
                   layout="fill"
@@ -118,7 +122,7 @@ export default function Featured() {
             href="/blog/b-d-jams-by-us-for-us"
             className="list-item list-item-blog push-hover"
           >
-            <div className="asset" data-index="15">
+            <div className="asset">
               <div className="asset__wrapper">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -128,6 +132,7 @@ export default function Featured() {
                   preserveAspectRatio=""
                 ></svg>
                 <Image
+                  className="image"
                   src="/image-10.png"
                   alt=""
                   layout="fill"
@@ -151,7 +156,7 @@ export default function Featured() {
             href="/blog/b-d-jams-by-us-for-us"
             className="list-item list-item-blog push-hover"
           >
-            <div className="asset" data-index="15">
+            <div className="asset">
               <div className="asset__wrapper">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -161,6 +166,7 @@ export default function Featured() {
                   preserveAspectRatio=""
                 ></svg>
                 <Image
+                  className="image"
                   src="/climateneutralblog.png"
                   alt=""
                   layout="fill"
@@ -186,7 +192,7 @@ export default function Featured() {
             href="/blog/b-d-jams-by-us-for-us"
             className="list-item list-item-blog push-hover"
           >
-            <div className="asset" data-index="15">
+            <div className="asset">
               <div className="asset__wrapper">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -196,6 +202,7 @@ export default function Featured() {
                   preserveAspectRatio=""
                 ></svg>
                 <Image
+                  className="image"
                   src="/image_from_ios.png"
                   alt=""
                   layout="fill"
@@ -222,7 +229,7 @@ export default function Featured() {
             href="/blog/b-d-jams-by-us-for-us"
             className="list-item list-item-blog push-hover"
           >
-            <div className="asset" data-index="15">
+            <div className="asset">
               <div className="asset__wrapper">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -232,6 +239,7 @@ export default function Featured() {
                   preserveAspectRatio=""
                 ></svg>
                 <Image
+                  className="image"
                   src="/WebbyWinBlogthumb_220427_185100.png"
                   alt=""
                   layout="fill"

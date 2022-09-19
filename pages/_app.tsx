@@ -9,7 +9,6 @@ import "../styles/spotlight.css";
 import "../styles/featured.css";
 import "../styles/footer.css";
 import "../styles/logo-fade.css";
-
 import type { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {

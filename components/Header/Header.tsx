@@ -44,7 +44,7 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY, headerRef]);
+  }, [lastScrollY, headerRef, isMounting]);
 
   useEffect(() => {
     if (drawerOpen) {
@@ -55,7 +55,7 @@ export default function Header() {
   }, [drawerOpen]);
 
   return (
-    <header ref={headerRef}>
+    <header ref={headerRef} data-scroll-section>
       <a href="#content" className="visually-hidden skip-nav">
         Skip Navigation
       </a>

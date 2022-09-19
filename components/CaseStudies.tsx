@@ -16,7 +16,7 @@ export default function CaseStudies() {
                   preserveAspectRatio=""
                 ></svg>
                 <Image
-                  className="asset__img"
+                  className="image"
                   alt=""
                   src="/Patagonia-Case-Study-Thumbnail.jpg"
                   layout="fill"
@@ -44,7 +44,7 @@ export default function CaseStudies() {
                   preserveAspectRatio=""
                 ></svg>
                 <Image
-                  className="asset__img"
+                  className="image"
                   alt=""
                   src="/WIlson-Case-Study-Thumbnail.jpg"
                   layout="fill"
@@ -71,11 +71,17 @@ export default function CaseStudies() {
                   preserveAspectRatio=""
                 ></svg>
                 <video
-                  playsInline
-                  autoPlay
-                  loop
-                  src="Google-Store-Web-Design-Case-Study-Thumbnail-02.mp4"
-                ></video>
+                  className="image"
+                  playsInline={true}
+                  autoPlay={true}
+                  loop={true}
+                  muted
+                >
+                  <source
+                    src="Google-Store-Web-Design-Case-Study-Thumbnail-02.mp4"
+                    type="video/mp4"
+                  />
+                </video>
               </div>
             </div>
             <div className="list-item-case-study__info">

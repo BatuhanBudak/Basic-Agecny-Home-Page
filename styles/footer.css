@@ -6,9 +6,43 @@
   background-color: var(--clr-tuatara);
   color: var(--clr-wild-sand);
 }
+@media only screen and (min-width: 48em) {
+  .footer {
+    margin-top: 16rem;
+  }
+}
+
+@media only screen and (min-width: 80em) {
+  .footer {
+    margin-top: 15.625vw;
+  }
+}
 
 .footer__content {
   padding: var(--size-1000) var(--grid-padding);
+}
+
+@media only screen and (min-width: 80em) {
+  .footer__content {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
+}
+@media only screen and (min-width: 80em) {
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .row .col {
+    flex: 0 0
+      calc(
+        (var(--grid-width) + var(--grid-gutter) - var(--grid-padding) * 2) /
+          var(--grid-column-count) * 6 - var(--grid-gutter)
+      );
+  }
 }
 
 .figure__logo {
@@ -16,8 +50,21 @@
   height: 1.6rem;
 }
 
+@media only screen and (min-width: 80em) {
+  .figure__logo {
+    width: 6.8rem;
+    height: 2.2rem;
+  }
+}
+
 .footer .col + .col {
   margin-top: var(--size-900);
+}
+
+@media only screen and (min-width: 80em) {
+  .footer .col + .col {
+    margin-top: 0;
+  }
 }
 
 .footer p {
@@ -27,6 +74,12 @@
   );
   font-size: 2.2rem;
   line-height: 1;
+}
+
+@media only screen and (min-width: 80em) {
+  .footer p {
+    font-size: 3.2rem;
+  }
 }
 
 .footer__contact-link {
@@ -45,9 +98,22 @@
   height: 0.2rem;
   background-color: currentColor;
 }
+.footer__contact-link:hover:after {
+  opacity: 1;
+  -webkit-animation: 0.25s var(--ease-out) 0s scale-out forwards,
+    0.25s var(--ease-out) 0.25s scale-in forwards;
+  animation: 0.25s var(--ease-out) 0s scale-out forwards,
+    0.25s var(--ease-out) 0.25s scale-in forwards;
+}
 
 .footer .row + .row {
   margin-top: var(--size-1200);
+}
+
+@media only screen and (min-width: 1280px) {
+  .footer .row + .row {
+    margin-top: 12rem;
+  }
 }
 
 .footer .row:nth-child(2) .col {
@@ -71,6 +137,12 @@
   text-transform: uppercase;
 }
 
+@media only screen and (min-width: 1280px) {
+  .footer h6 {
+    font-size: 1.8rem;
+  }
+}
+
 .footer h6::before {
   content: "●";
   font-size: 2rem;
@@ -83,6 +155,15 @@
 
 .footer .newsletter-form {
   margin-top: 0.7rem;
+}
+
+@media only screen and (min-width: 1280px) {
+  .footer .newsletter-form {
+    width: calc(
+      (var(--grid-width) + var(--grid-gutter) - var(--grid-padding) * 2) /
+        var(--grid-column-count) * 5 - var(--grid-gutter)
+    );
+  }
 }
 
 .newsletter-form__field {
@@ -134,6 +215,9 @@
 .footer__links a {
   text-decoration: none;
 }
+.footer__links a:hover {
+  text-decoration: underline;
+}
 
 .footer__copyright {
   width: 100%;
@@ -152,4 +236,11 @@
 .footer__copyright a {
   font-weight: var(--fw-bold);
   text-decoration: none;
+}
+@media only screen and (min-width: 1280px) {
+  .footer__copyright {
+    height: 6rem;
+    display: flex;
+    justify-content: space-between;
+  }
 }

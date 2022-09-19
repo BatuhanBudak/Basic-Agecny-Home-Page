@@ -10,6 +10,9 @@ header {
     opacity 0.65s var(--ease-in-out-soft),
     transform 0.65s var(--ease-in-out-soft);
 }
+.top header {
+  color: var(--clr-white);
+}
 .scroll-down header {
   transform: translateY(-100%);
   opacity: 0;
@@ -26,25 +29,6 @@ header {
   height: 100%;
 }
 
-.visually-hidden.skip-nav:focus {
-  position: absolute;
-  z-index: 100001;
-  left: 1rem;
-  top: 1rem;
-  display: inline-block;
-  width: unset;
-  height: unset;
-  font-size: var(--fs-400);
-  clip: unset;
-  line-height: var(--fs-500);
-  border-radius: 6px;
-  font-weight: 600;
-  background-color: var(--clr-white);
-  color: #000;
-  box-shadow: 0 0 0 0.1875rem rgb(0 0 0 / 10%);
-  border: solid 2px;
-  padding: 0.75rem 1rem;
-}
 .nav {
   width: 100%;
   display: block;

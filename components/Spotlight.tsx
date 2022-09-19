@@ -31,6 +31,7 @@ export default function Spotlight() {
                 playsInline={true}
                 autoPlay={true}
                 loop={true}
+                muted
                 title="BASIC® Branding Agency — Culture Manual{} Employee Onboarding Video"
               >
                 <source src="Culture-Loop_v1.mp4" type="video/mp4" />

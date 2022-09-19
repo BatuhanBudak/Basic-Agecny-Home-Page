@@ -3,6 +3,13 @@
   padding: 3rem var(--grid-padding);
   opacity: 1;
 }
+
+@media only screen and (min-width: 720px) {
+  .home-overview {
+    padding: 6.25vw var(--grid-padding);
+  }
+}
+
 .row {
   opacity: 0;
   animation: fade-in 0.6s var(--ease-out) 0.75s forwards;
@@ -15,6 +22,32 @@
   letter-spacing: var(--ls-h3);
   width: 100%;
 }
+@media only screen and (min-width: 30em) {
+  .home-overview__title {
+    width: calc(
+      (var(--grid-width) + var(--grid-gutter) - var(--grid-padding) * 2) /
+        var(--grid-column-count) * 5 - var(--grid-gutter)
+    );
+  }
+}
+@media only screen and (min-width: 48em) {
+  .home-overview__title {
+    width: calc(
+      (var(--grid-width) + var(--grid-gutter) - var(--grid-padding) * 2) /
+        var(--grid-column-count) * 3.25 - var(--grid-gutter)
+    );
+  }
+}
+
+@media only screen and (min-width: 80em) {
+  .home-overview__title {
+    width: calc(
+      (var(--grid-width) + var(--grid-gutter) - var(--grid-padding) * 2) /
+        var(--grid-column-count) * 5.5 - var(--grid-gutter)
+    );
+  }
+}
+
 .home-overview__body {
   margin-top: var(--size-800);
 }
@@ -25,4 +58,12 @@
   margin-left: auto;
   margin-right: 0;
   margin-top: var(--pages-meta-bar);
+}
+
+@media only screen and (min-width: 1280px) {
+  .overview-home__logo {
+    margin-top: 0;
+    width: 36.45833vw;
+    height: 11.97917vw;
+  }
 }

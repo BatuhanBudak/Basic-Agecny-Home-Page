@@ -34,13 +34,13 @@
 
   --ls-default: -0.01em;
   --fs-h1: 4rem;
-  --fs-h2: 2.4rem;
+  --fs-h2: 2.2rem;
   --fs-h3: 2.2rem;
   --fs-h4: 2rem;
   --fs-h5: 1.8rem;
   --fs-h6: 1.6rem;
   --lh-h1: 0.9;
-  --lh-h2: 1.1;
+  --lh-h2: 1;
   --lh-h3: 1.1;
   --lh-h4: 1.2;
   --lh-h5: 1.1;
@@ -64,7 +64,7 @@
 
   /* Sizes and spacing */
 
-  --grid-width: 100vw;
+  --grid-width: 99vw;
   --grid-height: 100vh;
   --grid-padding: 5.4vw;
   --grid-column-count: 6;
@@ -143,7 +143,7 @@
     --fs-small: 1.4rem;
     --fs-body: 1.8rem;
     --fs-large: 2.2rem;
-    --fs-h2: 4.2rem;
+    --fs-h2: 4rem;
     --fs-h3: 3.8rem;
     --fs-h4: 2.8rem;
     --fs-h5: 2.2rem;
@@ -307,6 +307,15 @@ input:focus {
   left: calc(50% - 4rem);
 }
 
+@media only screen and (min-width: 45em) {
+  .button-circle {
+    width: 12rem;
+    height: 12rem;
+    top: calc(50% - 6rem);
+    left: calc(50% - 6rem);
+  }
+}
+
 .button-circle button {
   position: relative;
   display: block;
@@ -350,6 +359,30 @@ input:focus {
 .button-pill:focus {
   color: var(--background-color);
   background-color: var(--text-color);
+}
+
+@media only screen and (min-width: 80em) {
+  .button-pill:before {
+    content: "";
+    position: absolute;
+    bottom: -0.1rem;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 0.2rem);
+    transform: translate3d(0, 100%, 0);
+    color: var(--background-color);
+    background-color: var(--text-color);
+    transition: transform 0.3s var(--ease-out);
+    z-index: -1;
+  }
+  .button-pill:not(:disabled):hover {
+    color: var(--background-color);
+    border-color: var(--background-color);
+    transition: border-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
+  }
+  .button-pill:not(:disabled):hover:before {
+    transform: translateZ(0);
+  }
 }
 
 .visually-hidden {
@@ -456,6 +489,26 @@ input:focus {
   }
   100% {
     transform: translateX(0);
+  }
+}
+@keyframes scale-in {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+@keyframes scale-out {
+  0% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
   }
 }
 

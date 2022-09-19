@@ -63,29 +63,21 @@
   user-select: none;
   backface-visibility: hidden;
   z-index: 2;
-}
-
-.carousel__wrap {
-  width: auto;
-  left: 0;
-  position: relative;
+  cursor: grab;
   overflow: hidden;
 }
+
 .carousel__stage {
   display: grid;
   grid-auto-flow: column;
-  /* grid-auto-columns: 65%; */
   padding-bottom: var(--size-800);
   padding-right: var(--grid-padding);
   padding-left: var(--grid-padding);
   position: relative;
-  overflow-x: auto;
-  scrollbar-width: none;
-  overscroll-behavior-inline: contain;
 }
 
 .carousel ul {
-  pointer-events: all;
+  /* pointer-events: all; */
   white-space: nowrap;
 }
 
@@ -141,4 +133,39 @@
   display: inline;
   cursor: pointer;
   text-decoration: underline;
+}
+.carousel__progress {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 0.2rem;
+  margin-top: 11.5rem;
+  padding-inline: var(--grid-padding);
+}
+
+.carousel__progress-background,
+.carousel__progress-bar {
+  display: block;
+}
+
+.carousel__progress-background {
+  position: relative;
+  width: 100%;
+  height: 0.2rem;
+  background: #b1b1b1;
+}
+
+.carousel__progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 0.2rem;
+  background: currentColor;
+}
+
+@media screen and (min-width: 80em) {
+  .carousel__progress {
+    display: block;
+  }
 }

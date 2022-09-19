@@ -1,5 +1,4 @@
-import { useState, useRef, useEffect } from "react";
-import { getRootOffset } from "../helpers/getRootOffset";
+import { useState, useRef, useEffect, useCallback } from "react";
 import formatTime from "../helpers/formatTime";
 
 export default function IntroHome() {
@@ -9,11 +8,30 @@ export default function IntroHome() {
   const [seeking, setSeeking] = useState(false);
   const [offset, setOffset] = useState(0);
   const [width, setWidth] = useState(0);
+  const [mouseX, setMouseX] = useState(0);
+  const [mouseY, setMouseY] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [cursorActive, setCursorActive] = useState(false);
   const posterRef = useRef();
   const videoRef = useRef();
   const scrubRef = useRef();
   const wrapperRef = useRef();
+  const cursorBreakpoint = 1280;
+
+  const styleCursor = useCallback(() => {
+    if (cursorActive) {
+      return {
+        left: `${mouseX}px`,
+        top: `${mouseY}px`,
+      };
+    } else {
+      return {
+        display: "none",
+        left: `-100%`,
+        top: `-100%`,
+      };
+    }
+  }, [cursorActive, mouseX, mouseY]);
 
   useEffect(() => {
     const scrubber = scrubRef.current;
@@ -42,7 +60,7 @@ export default function IntroHome() {
 
     function measure() {
       setWidth(wrapper.offsetWidth);
-      setOffset(getRootOffset(wrapper).left);
+      setOffset(wrapper.getBoundingClientRect().left);
     }
     measure();
 
@@ -68,6 +86,18 @@ export default function IntroHome() {
       }
     };
 
+    const activateCursor = (e) => {
+      if (window.innerWidth >= cursorBreakpoint) {
+        setCursorActive(true);
+        setMouseX(e.pageX);
+        setMouseY(e.pageY);
+      }
+    };
+
+    const deactivateCursor = () => {
+      setCursorActive(false);
+    };
+
     const onScrubberMouseDown = (e) => {
       e.preventDefault();
       setSeeking(true);
@@ -89,6 +119,9 @@ export default function IntroHome() {
     video.addEventListener("timeupdate", updateTime);
     video.addEventListener("click", playVideo);
 
+    wrapper.addEventListener("mousemove", activateCursor);
+    wrapper.addEventListener("mouseleave", deactivateCursor);
+
     document.addEventListener("mousemove", onDocumentMouseMove);
     document.addEventListener("mouseup", onDocumentMouseUp);
     document.addEventListener("touchmove", onDocumentMouseMove, {
@@ -103,6 +136,8 @@ export default function IntroHome() {
       scrubber.removeEventListener("mousedown", onScrubberMouseDown);
       scrubber.removeEventListener("touchstart", onScrubberMouseDown);
 
+      wrapper.removeEventListener("mousemove", activateCursor);
+      wrapper.removeEventListener("mouseleave", deactivateCursor);
       document.removeEventListener("mousemove", onDocumentMouseMove);
       document.removeEventListener("mouseup", onDocumentMouseUp);
       document.removeEventListener("touchmove", onDocumentMouseMove);
@@ -117,7 +152,7 @@ export default function IntroHome() {
 
   return (
     <section className={`${showReel ? "is-playing" : ""} intro-home`}>
-      <div className="intro-home__wrapper" ref={wrapperRef}>
+      <div className="intro-home__wrapper is-cursor-takeover" ref={wrapperRef}>
         <div className="intro-home__poster">
           <div className="asset">
             <div className="asset__wrapper">
@@ -136,6 +171,20 @@ export default function IntroHome() {
         </div>
         <div className={`${showReel ? "is-playing" : ""} intro-home__video`}>
           <video ref={videoRef} src="reel-2.mp4" playsInline></video>
+        </div>
+        <div className="button-circle cursor-takeover" style={styleCursor()}>
+          <button className="meta" role="button">
+            <span className="button-circle__text__container">
+              <span className="button-circle__text">Play Reel</span>
+            </span>
+            <span className="button-circle__text__container">
+              <span className="button-circle__text">Play Reel</span>
+            </span>
+            <span className="button-circle__bg"></span>
+          </button>{" "}
+          <span className="meta button-circle__footer">
+            BASIC/DEPT® 2010-22
+          </span>
         </div>
         <div className="button-circle">
           <button className="meta" role="button">

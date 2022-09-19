@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Footer() {
+  const [value, setValue] = useState();
+
+  function handleChange(e) {
+    setValue(e.target.value);
+  }
   return (
-    <footer className="footer" role="contentinfo">
+    <footer className="footer" role="contentinfo" data-scroll-section>
       <div className="footer__content">
         <div className="row">
           <div className="col">
@@ -34,10 +39,11 @@ export default function Footer() {
                 <div className="newsletter-form__field">
                   <input
                     type="email"
-                    value=""
+                    value={value}
                     name="email"
                     placeholder="Email Address"
                     required
+                    onChange={(e) => handleChange(e)}
                   />
 
                   <button
