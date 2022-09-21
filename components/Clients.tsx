@@ -1,26 +1,17 @@
 import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-import {
-  isDragActive,
-  motion,
-  useMotionValue,
-  useTransform,
-} from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 
 export default function Clients() {
   const [carouselWidth, setCarouselWidth] = useState(0);
-  const [progressWidth, setProgressBarWidth] = useState(0);
-
   const carouselRef = useRef();
   const barRef = useRef();
   const stageRef = useRef();
-  const dragProgressBarBreakpoint = 1280;
   const progressBarWidth = 400;
   let x = useMotionValue(0);
-
   let progressBarX = useTransform(x, (latest) => {
     let max = carouselWidth - progressBarWidth;
-    return clamp(-latest, 0, max);
+    return clamp(-latest - 175, 0, max);
   });
 
   function clamp(number, min, max) {
@@ -29,19 +20,11 @@ export default function Clients() {
 
   useEffect(() => {
     const carousel = carouselRef.current;
+
     if (carousel) {
       setCarouselWidth(carousel.scrollWidth - carousel.offsetWidth);
     }
   }, []);
-
-  // function handleDrag() {
-  //   setValue(latest.x);
-  //   // console.log(stageRef.current.getBoundingClientRect());
-  //   // barX.set(stageRef.current.getBoundingClientRect().left);
-  //   // let handleBounds = barRef.current.getBoundingClientRect();
-  //   // let middleOfBar = handleBounds.x + handleBounds.width / 2;
-  //   setCurrentX(lastX);
-  // }
 
   return (
     <section className="clients">
@@ -67,11 +50,12 @@ export default function Clients() {
           drag="x"
           dragConstraints={{ right: 0, left: -carouselWidth }}
           dragElastic={false}
-          // onDragStart={handleDrag}
-          // onDragEnd={handleDrag}
-          // onDragEnd={handleDrag}
           ref={stageRef}
-          style={{ x }}
+          style={{
+            x,
+            transitionTimingFunction: "ease-out",
+            transformOrigin: "left",
+          }}
         >
           <motion.ul>
             <motion.li className="carousel__stage__item">
@@ -211,8 +195,7 @@ export default function Clients() {
               className="carousel__progress-bar"
               ref={barRef}
               initial={{ x: 0 }}
-              // transition={{ ease: "easeOut", duration: 2 }}
-              style={{ x: progressBarX }}
+              style={{ x: progressBarX, transitionTimingFunction: "ease-out" }}
             ></motion.span>
           </span>
         </div>

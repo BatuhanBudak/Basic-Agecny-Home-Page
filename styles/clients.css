@@ -63,7 +63,6 @@
   user-select: none;
   backface-visibility: hidden;
   z-index: 2;
-  cursor: grab;
   overflow: hidden;
 }
 
@@ -74,10 +73,14 @@
   padding-right: var(--grid-padding);
   padding-left: var(--grid-padding);
   position: relative;
+  cursor: grab;
+}
+.dragging.caroseul__stage {
+  cursor: grabbing;
 }
 
 .carousel ul {
-  /* pointer-events: all; */
+  pointer-events: all;
   white-space: nowrap;
 }
 
@@ -93,6 +96,7 @@
       var(--grid-column-count) * 5
   );
   opacity: 1;
+  cursor: grabbing;
 }
 
 .clients .asset {
@@ -113,7 +117,11 @@
   text-transform: uppercase;
   position: relative;
 }
-
+@media only screen and (min-width: 1280px) {
+  .clients__title {
+    padding-top: 10rem;
+  }
+}
 .clients__title::before {
   content: "";
   width: 2rem;
