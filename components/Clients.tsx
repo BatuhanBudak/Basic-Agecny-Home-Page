@@ -4,9 +4,9 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 
 export default function Clients() {
   const [carouselWidth, setCarouselWidth] = useState(0);
-  const carouselRef = useRef();
-  const barRef = useRef();
-  const stageRef = useRef();
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const barRef = useRef<HTMLSpanElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
   const progressBarWidth = 400;
   let x = useMotionValue(0);
   let progressBarX = useTransform(x, (latest) => {
@@ -14,7 +14,7 @@ export default function Clients() {
     return clamp(-latest - 175, 0, max);
   });
 
-  function clamp(number, min, max) {
+  function clamp(number: number, min: number, max: number) {
     return Math.max(min, Math.min(number, max));
   }
 

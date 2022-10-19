@@ -72,6 +72,7 @@
 
 .intro-home__video.is-playing {
   visibility: visible;
+  cursor: default;
 }
 
 .intro-home__video video {

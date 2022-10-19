@@ -8,7 +8,7 @@ export default function Header() {
   const [drawerOpen, toggleDrawer] = useToggle();
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMounting, setIsMounting] = useState(true);
-  const headerRef = useRef();
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const header = headerRef.current;
@@ -19,28 +19,30 @@ export default function Header() {
     }
     function handleScroll() {
       let currentScroll = window.scrollY;
-
-      if (currentScroll <= header.getBoundingClientRect().height) {
-        if (!document.body.classList.contains("top")) {
-          document.body.classList.add("top");
-          document.body.classList.remove("scroll-up");
-          document.body.classList.remove("scroll-down");
+      if (header) {
+        if (currentScroll <= header.getBoundingClientRect().height) {
+          if (!document.body.classList.contains("top")) {
+            document.body.classList.add("top");
+            document.body.classList.remove("scroll-up");
+            document.body.classList.remove("scroll-down");
+          }
         }
+        //Scroll Down
+        else if (currentScroll > lastScrollY) {
+          document.body.classList.remove("top");
+          document.body.classList.remove("scroll-up");
+          document.body.classList.add("scroll-down");
+        }
+        //Scroll Up
+        else if (currentScroll < lastScrollY) {
+          document.body.classList.remove("top");
+          document.body.classList.remove("scroll-down");
+          document.body.classList.add("scroll-up");
+        }
+        setLastScrollY(currentScroll);
       }
-      //Scroll Down
-      else if (currentScroll > lastScrollY) {
-        document.body.classList.remove("top");
-        document.body.classList.remove("scroll-up");
-        document.body.classList.add("scroll-down");
-      }
-      //Scroll Up
-      else if (currentScroll < lastScrollY) {
-        document.body.classList.remove("top");
-        document.body.classList.remove("scroll-down");
-        document.body.classList.add("scroll-up");
-      }
-      setLastScrollY(currentScroll);
     }
+
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);

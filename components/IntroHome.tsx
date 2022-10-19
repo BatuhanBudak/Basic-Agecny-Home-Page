@@ -12,10 +12,10 @@ export default function IntroHome() {
   const [mouseY, setMouseY] = useState(0);
   const [progress, setProgress] = useState(0);
   const [cursorActive, setCursorActive] = useState(false);
-  const posterRef = useRef();
-  const videoRef = useRef();
-  const scrubRef = useRef();
-  const wrapperRef = useRef();
+  const posterRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const scrubRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const cursorBreakpoint = 1280;
 
   const styleCursor = useCallback(() => {
@@ -43,13 +43,13 @@ export default function IntroHome() {
       try {
         if (!showReel) {
           setShowReel(true);
-          setVideoDuration(videoRef.current?.duration);
+          setVideoDuration(video!.duration);
           setVideoCurrentTime(0);
-          await videoRef.current?.play();
+          await video!.play();
           document.body.classList.add("video-playing");
         } else {
           setShowReel(false);
-          videoRef.current?.load();
+          video?.load();
           setVideoCurrentTime(0);
           document.body.classList.remove("video-playing");
         }
@@ -59,23 +59,26 @@ export default function IntroHome() {
     }
 
     function measure() {
-      setWidth(wrapper.offsetWidth);
-      setOffset(wrapper.getBoundingClientRect().left);
+      setWidth(wrapper!.offsetWidth);
+      setOffset(wrapper!.getBoundingClientRect().left);
     }
     measure();
 
     const updateTime = () => {
-      setVideoCurrentTime(video.currentTime);
+      setVideoCurrentTime(video!.currentTime);
       setProgress(videoCurrentTime / videoDuration);
     };
 
-    const onDocumentMouseMove = (e) => {
+    const onDocumentMouseMove = (e: TouchEvent | MouseEvent) => {
       if (seeking) {
-        videoRef.current.currentTime =
-          (((e.touches ? e.touches[0].pageX : e.clientX) - offset) / width) *
-          videoDuration;
+        if (e instanceof TouchEvent) {
+          video!.currentTime =
+            ((e.touches[0].pageX - offset) / width) * videoDuration;
+        } else if (e instanceof MouseEvent) {
+          video!.currentTime = ((e.clientX - offset) / width) * videoDuration;
+        }
       }
-      setVideoCurrentTime(video.currentTime);
+      setVideoCurrentTime(video!.currentTime);
       setProgress(videoCurrentTime / videoDuration);
     };
 
@@ -86,7 +89,7 @@ export default function IntroHome() {
       }
     };
 
-    const activateCursor = (e) => {
+    const activateCursor = (e: MouseEvent) => {
       if (window.innerWidth >= cursorBreakpoint) {
         setCursorActive(true);
         setMouseX(e.pageX);
@@ -98,29 +101,32 @@ export default function IntroHome() {
       setCursorActive(false);
     };
 
-    const onScrubberMouseDown = (e) => {
+    const onScrubberMouseDown = (e: TouchEvent | MouseEvent) => {
       e.preventDefault();
       setSeeking(true);
-      videoRef.current.currentTime =
-        (((e.touches ? e.touches[0].pageX : e.clientX) - offset) / width) *
-        videoDuration;
-      setVideoCurrentTime(video.currentTime);
+      if (e instanceof TouchEvent) {
+        video!.currentTime =
+          ((e.touches[0].pageX - offset) / width) * videoDuration;
+      } else if (e instanceof MouseEvent) {
+        video!.currentTime = ((e.clientX - offset) / width) * videoDuration;
+      }
+      setVideoCurrentTime(video!.currentTime);
       setProgress(videoCurrentTime / videoDuration);
       document.body.classList.add("is-scrubbing");
     };
 
-    poster.addEventListener("click", playVideo);
-    scrubber.addEventListener("mousedown", onScrubberMouseDown);
-    scrubber.addEventListener("touchstart", onScrubberMouseDown, {
+    poster!.addEventListener("click", playVideo);
+    scrubber!.addEventListener("mousedown", onScrubberMouseDown);
+    scrubber!.addEventListener("touchstart", onScrubberMouseDown, {
       passive: true,
     });
 
-    video.addEventListener("ended", playVideo);
-    video.addEventListener("timeupdate", updateTime);
-    video.addEventListener("click", playVideo);
+    video!.addEventListener("ended", playVideo);
+    video!.addEventListener("timeupdate", updateTime);
+    video!.addEventListener("click", playVideo);
 
-    wrapper.addEventListener("mousemove", activateCursor);
-    wrapper.addEventListener("mouseleave", deactivateCursor);
+    wrapper!.addEventListener("mousemove", activateCursor);
+    wrapper!.addEventListener("mouseleave", deactivateCursor);
 
     document.addEventListener("mousemove", onDocumentMouseMove);
     document.addEventListener("mouseup", onDocumentMouseUp);
@@ -131,22 +137,22 @@ export default function IntroHome() {
     document.addEventListener("resize", measure);
 
     return () => {
-      poster.removeEventListener("click", playVideo);
+      poster!.removeEventListener("click", playVideo);
 
-      scrubber.removeEventListener("mousedown", onScrubberMouseDown);
-      scrubber.removeEventListener("touchstart", onScrubberMouseDown);
+      scrubber!.removeEventListener("mousedown", onScrubberMouseDown);
+      scrubber!.removeEventListener("touchstart", onScrubberMouseDown);
 
-      wrapper.removeEventListener("mousemove", activateCursor);
-      wrapper.removeEventListener("mouseleave", deactivateCursor);
+      wrapper!.removeEventListener("mousemove", activateCursor);
+      wrapper!.removeEventListener("mouseleave", deactivateCursor);
       document.removeEventListener("mousemove", onDocumentMouseMove);
       document.removeEventListener("mouseup", onDocumentMouseUp);
       document.removeEventListener("touchmove", onDocumentMouseMove);
       document.removeEventListener("touchend", onDocumentMouseUp);
       document.removeEventListener("resize", measure);
 
-      video.removeEventListener("ended", playVideo);
-      video.removeEventListener("timeupdate", updateTime);
-      video.removeEventListener("click", playVideo);
+      video!.removeEventListener("ended", playVideo);
+      video!.removeEventListener("timeupdate", updateTime);
+      video!.removeEventListener("click", playVideo);
     };
   }, [offset, seeking, videoDuration, width, showReel, videoCurrentTime]);
 

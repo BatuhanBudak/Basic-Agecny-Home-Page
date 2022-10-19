@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 export default function Footer() {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState("");
 
-  function handleChange(e) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setValue(e.target.value);
   }
   return (
