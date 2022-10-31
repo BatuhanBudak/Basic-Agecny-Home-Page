@@ -1,6 +1,12 @@
 import React from "react";
 import { MobileNavMenuIcon } from "../Icon";
-export default function NavMobile({ toggleDrawer, drawerOpen }) {
+
+type Props = {
+  drawerOpen: boolean;
+  toggleDrawer: () => void;
+};
+
+export default function NavMobile({ toggleDrawer, drawerOpen }: Props) {
   return (
     <div className="nav__mobile">
       <a className="nav__mobile__icon" href="">
